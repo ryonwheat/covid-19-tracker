@@ -148,7 +148,7 @@ class CovidPanel extends Component {
             <div className="header">COVID-19 Tracker</div>
             <div className="sub-header">
               Built by{" "}
-              <a href="hhttps://github.com/ryonwheat/covid-19-tracker" target="_blank" rel="noreferrer">
+              <a href="https://github.com/ryonwheat/covid-19-tracker" target="_blank" rel="noreferrer">
                 Ryan Heath
               </a>
             </div>
