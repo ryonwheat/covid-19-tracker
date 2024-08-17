@@ -7,6 +7,14 @@ const StyledPanel = styled.div`
   border-right: 1px solid #aeaeae;
   border-left: 1px solid #aeaeae;
 
+  .bold {
+    font-weight: 700;
+  }
+
+  .fw-300 {
+    font-weight: 300;
+  }
+
   .header-wrap {
     background-color: #cecece;
     padding: 20px 20px 10px 20px;
@@ -21,7 +29,7 @@ const StyledPanel = styled.div`
 
   .sub-header {
     font-size: 0.9em;
-    font-weight: 300;
+    // font-weight: 300;
     padding: 0 0 12px 0;
   }
 
@@ -130,10 +138,7 @@ class CovidPanel extends Component {
     const covidList =
       Countries &&
       Object.entries(Countries).map(([key, value], index) => (
-        <li
-          key={value.CountryCode}
-          onClick={() => this.onSelect(value.CountryCode)}
-        >
+        <li key={value.CountryCode} onClick={() => this.onSelect(value.CountryCode)}>
           <div className="item-wrap">
             <div className="item-name">{value.Country}</div>
             <div className="item-stats">{nf.format(value.TotalConfirmed)}</div>
@@ -146,43 +151,43 @@ class CovidPanel extends Component {
         <div>
           <div className="header-wrap">
             <div className="header">COVID-19 Tracker</div>
-            <div className="sub-header">
-              Built by{" "}
-              <a href="https://github.com/ryonwheat/covid-19-tracker" target="_blank" rel="noreferrer">
-                Ryan Heath
-              </a>
+            <div className="sub-header bold">
+              Thank you for visiting this site. Due to lack of data, apis are no longer supported
+              and we have discontinued use of this site.
             </div>
-            <div className="sub-header">
-              Data is sourced from{" "}
+            <div className="sub-header fw-300">
+              Built by{" "}
               <a
-                href="https://covid19api.com/"
+                href="https://github.com/ryonwheat/covid-19-tracker"
                 target="_blank"
                 rel="noreferrer"
               >
+                Ryan Heath
+              </a>
+            </div>
+            <div className="sub-header fw-300">
+              Data is sourced from{" "}
+              <a href="https://covid19api.com/" target="_blank" rel="noreferrer">
                 COVID 19 API
               </a>
               .
             </div>
             <div className="global-stats-wrap">
               <div className="global-label">Confirmed</div>
-              <div className="global-stats">
-                {Global && nf.format(Global.TotalConfirmed)}
-              </div>
+              <div className="global-stats">{Global && nf.format(Global.TotalConfirmed)}</div>
             </div>
             <div className="global-stats-wrap">
               <div className="global-label">Deaths</div>
-              <div className="global-stats">
-                {Global && nf.format(Global.TotalDeaths)}
-              </div>
+              <div className="global-stats">{Global && nf.format(Global.TotalDeaths)}</div>
             </div>
             <div className="global-stats-wrap">
               <div className="global-label">Recovered</div>
-              <div className="global-stats">
-                {Global && nf.format(Global.TotalRecovered)}
-              </div>
+              <div className="global-stats">{Global && nf.format(Global.TotalRecovered)}</div>
             </div>
           </div>
-          <ul className="item-list">{covidList}</ul>
+          <ul className="item-list">
+          </ul>
+          {/* <ul className="item-list">{covidList}</ul> */}
         </div>
       </StyledPanel>
     );

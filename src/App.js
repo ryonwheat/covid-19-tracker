@@ -40,9 +40,9 @@ class App extends Component {
 
   componentDidMount() {
     this.getCountries();
-    this.getCovidData();
+    // this.getCovidData();
 
-    console.log("COVID Countries: " + this.state.covidData);
+    console.log("COVID Countries: ", this.state.covidData);
   }
 
   getCountries() {
@@ -50,7 +50,7 @@ class App extends Component {
 
     promise.then((countries) => {
       this.setState({ countries: countries }, () => {
-        console.log("State.countries: " + this.state.countries);
+        console.log("State.countries: ", this.state.countries);
       });
     });
   }
@@ -58,8 +58,8 @@ class App extends Component {
   getCovidData() {
     this.covidService.getCovidData().then((covidData) => {
       this.setState({ covidData: covidData }, () => {
-        console.log("State.covid: " + this.state.covidData);
-        console.log("State.countries: " + this.state.countries);
+        console.log("State.covid: ", this.state.covidData);
+        console.log("State.countries: ", this.state.countries);
 
         let markers = [];
         let countries = this.state.countries;
