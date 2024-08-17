@@ -132,19 +132,20 @@ class CovidPanel extends Component {
         JSON.stringify(this.props.covidData)
     );
 
-    const { Global, Countries } = this.props.covidData;
+    const { Global } = this.props.covidData;
+    // const { Global, Countries } = this.props.covidData;
 
     const nf = new Intl.NumberFormat("en-US");
-    const covidList =
-      Countries &&
-      Object.entries(Countries).map(([key, value], index) => (
-        <li key={value.CountryCode} onClick={() => this.onSelect(value.CountryCode)}>
-          <div className="item-wrap">
-            <div className="item-name">{value.Country}</div>
-            <div className="item-stats">{nf.format(value.TotalConfirmed)}</div>
-          </div>
-        </li>
-      ));
+    // const covidList =
+    //   Countries &&
+    //   Object.entries(Countries).map(([key, value], index) => (
+    //     <li key={value.CountryCode} onClick={() => this.onSelect(value.CountryCode)}>
+    //       <div className="item-wrap">
+    //         <div className="item-name">{value.Country}</div>
+    //         <div className="item-stats">{nf.format(value.TotalConfirmed)}</div>
+    //       </div>
+    //     </li>
+    //   ));
 
     return (
       <StyledPanel>
